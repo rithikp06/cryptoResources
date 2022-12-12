@@ -26,7 +26,7 @@ test("Signup test", () => {
     expect(localStorage.getItem("token")).not.toBe("");
 });
 
-//test 10
+//test 2
 test("Signin test", () => {
     const rendered = render(
         <Signin/>
@@ -41,7 +41,7 @@ test("Signin test", () => {
     expect(localStorage.getItem("token")).not.toBe("");
 });
 
-//test 2
+//test 3
 test("Signout test", () => {
     const rendered = render(
         <NavigationBar/>
@@ -52,7 +52,7 @@ test("Signout test", () => {
 
 });
 
-//test 3
+//test 4
 test("fetch resources test", async () => {
     const resources = await _fetch(host + "/resources/get");
     console.log("resources", resources);
@@ -60,13 +60,13 @@ test("fetch resources test", async () => {
 
 });
 
-//test 4
+//test 5
 test("fetch account test", async () => {
     const account = await _fetch(host + "/resources/get");
     expect(Object.keys(account).includes("data")).toBe(true);
 });
 
-//test 5
+//test 6
 test("Delete resource test", async() => {
     const response = await fetch(host + "/resources/update", {
         method: "DELETE",
@@ -79,11 +79,6 @@ test("Delete resource test", async() => {
         }),
       });
     expect(Object.keys(response).includes("data")).toBe(true);
-});
-
-//test 6
-test("Update test", () => {
-    expect(true).toBe(true);
 });
 
 //test 7
