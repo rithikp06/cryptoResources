@@ -14,6 +14,7 @@
 
 # firebase
 /backend/api/firebase/config.js
+/frontend/api/firebase/config.js
 /.firebase
 /test
 

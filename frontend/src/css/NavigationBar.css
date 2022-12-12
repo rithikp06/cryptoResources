@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+
+.navHead {
+    font-family: 'Raleway';
+    color: white !important;
+    font-weight: 600 !important;
+    margin-right: 20px;
+    font-weight: 600;
+    /* margin-top: 3px; */
+    /* padding-bottom: 3px; */
+    margin-bottom: 0;
+    /* border-color: transparent; */
+    opacity: 0.6;
+    transition: 0.3s;
+}
+
+.selected {
+    border-bottom-width: 2px !important;
+    border-bottom-style: solid;
+    border-bottom-color: white;
+    opacity: 1;
+    display: inline-block;
+    position: relative;
+    color: white;
+}
+
+.navHead:hover {
+    opacity: 1;
+}
+
+
+#navigationBar {
+    /* background-color: #1A4C3D !important; */
+    background-color: var(--secondary) !important;
+    /* justify-content: end; */
+    /* position: fixed; */
+    width: 100%;
+    /* text-align: right; */
+}
+
+.navBorder {
+    border-style: solid;
+    /* border-color: #BC9A17; */
+    border-color: white;
+    max-width: 100px;
+    text-align: center;
+}
+
+.navBorder:hover {
+    /* background-color: #CFAC33; */
+    background-color: white;
+    color: black !important;
+    text-decoration: none;
+    /* border-color: #CFAC33;  */
+}
+
+  .hover-underline-animation {
+    display: inline-block;
+    position: relative;
+    color: white;
+  }
+  
+  .hover-underline-animation:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 1px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+  
+  .hover-underline-animation:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+  }
+

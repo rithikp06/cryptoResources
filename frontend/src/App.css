@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;600;700;800&display=swap');
+
 .App {
   text-align: center;
+  font-family:'Raleway';
 }
 
 .App-logo {
@@ -36,3 +39,11 @@
     transform: rotate(360deg);
   }
 }
+
+:root {
+  --primary: #00A79D;
+  --secondary: #7DBBBF;
+  --white: white;
+  --third: #525252;
+}
+
