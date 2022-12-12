@@ -26,7 +26,7 @@ const TrackGroup = (props) => {
               return (
                 <tr key={i}>
                   <td>
-                  {/* <button
+                    {/* <button
                       className="star"
                       onClick={() => {
                         console.log("props", props.favorites);
@@ -71,7 +71,7 @@ const TrackGroup = (props) => {
                   <td>{resource.topic}</td>
                   <td>{resource.experience_level}</td>
                   <td>
-                    <a href={"http://" +resource.url}>{resource.url}</a>
+                    <a href={"http://" + resource.url}>{resource.url}</a>
                   </td>
                 </tr>
               );

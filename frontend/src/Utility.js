@@ -19,4 +19,4 @@ function redirectIfSignedOut(navigate) {
   }
 }
 
-export { redirectIfSignedOut, _fetch }
+export { redirectIfSignedOut, _fetch };

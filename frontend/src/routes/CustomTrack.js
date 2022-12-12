@@ -8,11 +8,11 @@ const CustomTrack = () => {
   const [favorites, setFavorites] = useState(
     useLoaderData().favorites.data.favorites
   );
-  const {topic} = useParams();
+  const { topic } = useParams();
 
   useEffect(() => {
     console.log("topic", topic);
-    document.title = "Resources related to " + topic; 
+    document.title = "Resources related to " + topic;
   }, []);
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const CustomTrack = () => {
         setFavorites={setFavorites}
         eventKey=""
       />
-      <CryptoPrice token={topic}/>
+      <CryptoPrice token={topic} />
     </div>
   );
 };

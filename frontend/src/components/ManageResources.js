@@ -4,9 +4,7 @@ import Button from "react-bootstrap/Button";
 import { ToastContainer, toast } from "react-toastify";
 
 const ManageResources = (props) => {
-  const [favs, setFavs] = useState(
-    Array.isArray(props.favs) ? props.favs : []
-  );
+  const [favs, setFavs] = useState(Array.isArray(props.favs) ? props.favs : []);
   const [remove, setRemove] = useState(new Set());
   const notify = () =>
     toast.success("Successfully Removed", {
@@ -24,12 +22,14 @@ const ManageResources = (props) => {
   const [allSelected, setAllSelected] = useState(false);
 
   useEffect(() => {
-    console.log(favs.filter((fav) => {
+    console.log(
+      favs.filter((fav) => {
         if (props.reverseDelete) {
-            return remove.has(fav);
-        } 
+          return remove.has(fav);
+        }
         return !remove.has(fav);
-    }));
+      })
+    );
     if (remove.size === favs.length && remove.size !== 0) {
       setIsIndeterminate(false);
       setAllSelected(true);
@@ -47,10 +47,10 @@ const ManageResources = (props) => {
 
   const updateResources = () => {
     const newFavs = favs.filter((fav) => {
-        if (props.reverseDelete) {
-            return remove.has(fav);
-        } 
-        return !remove.has(fav);
+      if (props.reverseDelete) {
+        return remove.has(fav);
+      }
+      return !remove.has(fav);
     });
     console.log(
       favs.filter((fav) => {
@@ -76,13 +76,15 @@ const ManageResources = (props) => {
         setAllSelected(false);
         setIsIndeterminate(false);
         console.log("newFavs", newFavs);
-        console.log("remove",remove);
+        console.log("remove", remove);
         if (props.reverseDelete) {
-            setFavs(favs.filter((fav) => {
-                return !remove.has(fav);
-            }));
+          setFavs(
+            favs.filter((fav) => {
+              return !remove.has(fav);
+            })
+          );
         } else {
-            setFavs(newFavs);
+          setFavs(newFavs);
         }
         setRemove(new Set());
       });

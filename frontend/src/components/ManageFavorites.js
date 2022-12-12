@@ -26,12 +26,14 @@ const ManageFavorites = (props) => {
 
   useEffect(() => {
     console.log(favs);
-    console.log(favs.filter((fav) => {
+    console.log(
+      favs.filter((fav) => {
         if (props.reverseDelete) {
-            return remove.has(fav);
-        } 
+          return remove.has(fav);
+        }
         return !remove.has(fav);
-    }));
+      })
+    );
     if (remove.size === favs.length && remove.size !== 0) {
       setIsIndeterminate(false);
       setAllSelected(true);
@@ -41,7 +43,7 @@ const ManageFavorites = (props) => {
     } else if (remove.size == 0) {
       setIsIndeterminate(false);
     }
-  }, [remove, ]);
+  }, [remove]);
 
   useEffect(() => {
     checkboxRef.current.indeterminate = isIndeterminate;
@@ -49,18 +51,18 @@ const ManageFavorites = (props) => {
 
   const updateResources = () => {
     const newFavs = favs.filter((fav) => {
-        if (props.reverseDelete) {
-            return remove.has(fav);
-        } 
-        return !remove.has(fav);
+      if (props.reverseDelete) {
+        return remove.has(fav);
+      }
+      return !remove.has(fav);
     });
 
     console.log(favsTimestamps);
     Object.entries(favsTimestamps).forEach(([key, value]) => {
-        console.log("key", key);
-        if (remove.has(key)) {
-            delete favsTimestamps[key];
-        }
+      console.log("key", key);
+      if (remove.has(key)) {
+        delete favsTimestamps[key];
+      }
     });
 
     console.log(
@@ -87,13 +89,15 @@ const ManageFavorites = (props) => {
         setAllSelected(false);
         setIsIndeterminate(false);
         console.log("newFavs", newFavs);
-        console.log("remove",remove);
+        console.log("remove", remove);
         if (props.reverseDelete) {
-            setFavs(favs.filter((fav) => {
-                return !remove.has(fav);
-            }));
+          setFavs(
+            favs.filter((fav) => {
+              return !remove.has(fav);
+            })
+          );
         } else {
-            setFavs(newFavs);
+          setFavs(newFavs);
         }
         setRemove(new Set());
       });
@@ -164,12 +168,21 @@ const ManageFavorites = (props) => {
                     />
                   </td>
                   <td>{i + 1}</td>
-                  <td>{new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit', hour: '2-digit', minute: '2-digit', second: '2-digit'}).format(favsTimestamps[resource.url])}</td>
+                  <td>
+                    {new Intl.DateTimeFormat("en-US", {
+                      year: "numeric",
+                      month: "2-digit",
+                      day: "2-digit",
+                      hour: "2-digit",
+                      minute: "2-digit",
+                      second: "2-digit",
+                    }).format(favsTimestamps[resource.url])}
+                  </td>
                   <td>{resource.name}</td>
                   <td>{resource.topic}</td>
                   <td>{resource.experience_level}</td>
                   <td>
-                    <a href={resource.url}>{resource.url}</a>
+                    <a href={"http://" + resource.url}>{resource.url}</a>
                   </td>
                 </tr>
               );

@@ -10,19 +10,17 @@ const Signin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [submitted, setSubmitted] = useState(false);
-  // const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     let invalid = false;
     event.preventDefault();
     setSubmitted(true);
     if (!invalid) {
-        signin(email, password, setToken, toast);
+      signin(email, password, setToken, toast);
     }
   };
 
   useEffect(() => {
-    // localStorage.setItem("token", "test")
     const currToken = localStorage.getItem("token");
     if (currToken) {
       setToken(currToken);
@@ -33,7 +31,6 @@ const Signin = () => {
 
   useEffect(() => {
     if (token !== "") {
-      // navigate("/");
       window.location.reload(false);
     }
   }, [token]);
@@ -41,21 +38,35 @@ const Signin = () => {
   return (
     <div style={{ width: "70%", marginLeft: "15%" }}>
       <h2>Signin</h2>
-      <ToastContainer/>
+      <ToastContainer />
       <Form onSubmit={handleSubmit}>
-        <Form.Group className="mb-3" controlId="formBasicEmail" >
+        <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control data-testid="email" type="" placeholder="Enter email" value={email} onChange={(event) => setEmail(event.target.value)} />
+          <Form.Control
+            data-testid="email"
+            type=""
+            placeholder="Enter email"
+            value={email}
+            onChange={(event) => setEmail(event.target.value)}
+          />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control data-testid="password" type="password" placeholder="Password" value={password} onChange={(event) => setPassword(event.target.value)} />
+          <Form.Control
+            data-testid="password"
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
         </Form.Group>
-        <Button  data-testid="submit" variant="primary" type="submit">
+        <Button data-testid="submit" variant="primary" type="submit">
           Submit
         </Button>
-        <a style={{marginLeft: 30}}href="/signup">Create an account here</a>
+        <a style={{ marginLeft: 30 }} href="/signup">
+          Create an account here
+        </a>
       </Form>
     </div>
   );
